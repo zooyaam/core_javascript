@@ -1,3 +1,1 @@
-const a = 'hello';
-
-const b = 'hi';
+alert('하이염');
