@@ -2,8 +2,15 @@
 /* Logical Operators   */
 /* ------------------- */
 
-// let age = 23;
-// console.log(age >= 14 && age <= 90) ? true : false;
+let age = 93;
+
+if (age >= 14 && age <= 90) {
+  console.log('청소년 또는 성인입니다.');
+}
+
+// if(14 <= age <= 90){
+//   console.log('성인');
+// }
 
 let a = 10;
 let b = '';
@@ -11,11 +18,21 @@ let value = Boolean(b);
 
 // 논리곱(그리고) 연산자
 let AandB = a && b;
+
 console.log(AandB);
 
+// Logical AND Assignment 논리곱 할당 연산자
+
+// a = a && b;
+// a &&= b;
+
 // 논리합(또는) 연산자
-let AorB;
+let AorB = a || b;
 console.log(AorB);
+
+// Logical OR Assignment 논리합 할당 연산자
+
+a ||= b;
 
 // 부정 연산자
 let reverseValue = !value;
@@ -23,10 +40,14 @@ let reverseValue = !value;
 // 조건 처리
 
 // 첫번째 Falsy를 찾는 연산 (&&)
-let whichFalsy;
+let whichFalsy = true && ' ' && [] && { thisIsFalsy: false };
 
 // 첫번째 Truthy를 찾는 연산 (||)
-let whichTruthy;
+let whichTruthy = false || '' || [2, 3].length || { thisIsTruthy: true };
+
+/* -------------------------------------------- */
+/*                      --                      */
+/* -------------------------------------------- */
 
 function login() {
   let userName = prompt('누구십니까?');

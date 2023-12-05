@@ -2,7 +2,7 @@
 /* Nullish Coalescing Operator  */
 /* ---------------------------- */
 
-let emailAddress;
+let emailAddress = 'seonbeom2@gmail.com';
 let receivedEmailAddress;
 
 if (emailAddress === undefined || emailAddress === null) {
@@ -12,6 +12,7 @@ if (emailAddress === undefined || emailAddress === null) {
 }
 
 // 3항 연산자 (ternary) 를 사용한 식으로 변경합니다.
+
 receivedEmailAddress =
   emailAddress === undefined || emailAddress === null
     ? 'user@company.io'
@@ -43,26 +44,37 @@ console.log('' ?? WIDTH);
 
 // Logical Assignment Operators
 
+// function render(){
+
+//   return (
+//     <div>
+//       {
+//           data && <Component/>
+//       }
+//     </div>
+//   )
+// }
+
 let x;
 let y;
 
-x ||= y; //x가 false일 때, y값을 x에 할당
-x &&= y; //x가 true일 때, y값을 x에 할당
-x ??= y; //x가 undefined, null일 때, y값을 x에 할당
+x ||= y; // x가 false 일때 y값을 x에 할당
+x &&= y; // x가 true 일때 y값을 x에 할당
+x ??= y; // x가 undefine, null 일때 y값을 x에 할당
 
 let title;
 
-title ||= '범쌤과 함께하는 JS수업';
+title ||= '범쌤과 함께하는 JS수업!';
 
 let person = {
-  firstName: 'yunjoo',
-  lastName: 'cho',
+  firstName: 'seonbeom',
+  lastName: 'sim',
 };
 
-person.lastName &&= 'jo';
+person.lastName &&= 'sin';
 
 let user = {
-  userName: 'zooya',
+  userName: 'kindtiger',
 };
 
-user.nickName ??= 'happyzoo';
+user.nickName ??= 'tiger';

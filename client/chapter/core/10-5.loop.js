@@ -2,9 +2,9 @@
 /* For Of Loop     */
 /* --------------- */
 
-// enumerable: 열거 가능한
-// iterable: 반복 가능한
+// enumerable : 열거 가능한
 
+// iterable : 반복 가능한
 // 반복 가능한 요소들은 for..of로 순환이 가능하다.
 
 // String, Array
@@ -17,7 +17,7 @@ const arrayLike = {
   // [Symbol.iterator]{...}
 };
 
-const str = '유사배열 입니다.';
+const str = '유사배열입니다.';
 
 for (let value of str) {
   // console.log(value);
@@ -53,6 +53,9 @@ const languages = [
 // for ~ of 문
 // - 특정 조건에서 건너띄기
 // - 특정 조건에서 중단하기
+
+// iterable한 요소를 순환 할때 사용  => 배열
+
 for (let value of languages) {
   let name = value.name;
 
@@ -60,8 +63,7 @@ for (let value of languages) {
 
   // if(name.includes('Java') && name.length < 5) continue
   if (name.includes('Java') && name.length < 5) break;
-
-  console.table(value);
+  // console.table(value);
 }
 
 const randomUser = {
@@ -102,33 +104,72 @@ const randomUser = {
   nat: 'GB',
 };
 
+// console.log( randomUser );
+
 Object.prototype.nickName = 'tiger';
 
 // 객체의 키, 값 순환
 // - for ~ in 문
 
-for (let key in randomUser) {
-  if (Object.prototype.hasOwnProperty.call(randomUser, key)) {
-    const L1 = randomUser[key];
-    console.log('\tL1 : ', L1);
-    if (typeof L1 === 'object') {
-      for (let key in L1) {
-        if (Object.prototype.hasOwnProperty.call(L1, key)) {
-          const L2 = L1[key];
-          console.log('\t\tL2 : ', L2);
-          if (typeof L2 === 'object') {
-            for (let key in L2) {
-              if (Object.prototype.hasOwnProperty.call(L2, key)) {
-                const L3 = L2[key];
-                console.log('\t\t\tL3 : ', L3);
-              }
-            }
-          }
+// 재귀 함수
+
+// for(let key in randomUser){
+//   if(Object.prototype.hasOwnProperty.call(randomUser,key)){
+//     const L1 = randomUser[key];
+//     console.log('\tL1 : ', L1);
+//     if(typeof L1 === 'object'){
+//       for(let key in L1){
+//         if(Object.prototype.hasOwnProperty.call(L1,key)){
+//           const L2 = L1[key];
+//           console.log('\t\tL2 : ', L2);
+//           if(typeof L2 === 'object'){
+//             for(let key in L2){
+//               if(Object.prototype.hasOwnProperty.call(L2,key)){
+//                 const L3 = L2[key];
+//                 console.log('\t\t\tL3 : ', L3);
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// - for ~ of 문
+
+// Object.keys();
+// Object.values();
+// Object.entries(); // 객체를 배열로 반환 -> key,value를 하나의 쌍으로 담은 배열
+
+// 배열 구조분해할당
+
+const z1 = performance.now();
+
+for (let keyValue of Object.entries(randomUser)) {
+  let key = keyValue[0];
+  let value = keyValue[1];
+
+  console.log('\tL1 : ', value);
+
+  if (typeof value === 'object') {
+    for (let keyValue of Object.entries(value)) {
+      let key = keyValue[0];
+      let value = keyValue[1];
+
+      console.log('\t\tL2 : ', value);
+      if (typeof value === 'object') {
+        for (let keyValue of Object.entries(value)) {
+          let key = keyValue[0];
+          let value = keyValue[1];
+
+          console.log('\t\t\tL3 : ', value);
         }
       }
     }
   }
 }
+const z2 = performance.now();
+console.log(z2 - z1);
 
-// - for ~ of 문
 // - 성능 비교 진단

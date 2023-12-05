@@ -21,9 +21,9 @@ var a = 10;
 // var a = 5;
 
 let b = 123;
-// ler b = 10;
+// let b = 10;
 
 // 선언하기 전 사용할 수 있는 var
 
-var c = 123456;
+var c = 12346;
 console.log(c);

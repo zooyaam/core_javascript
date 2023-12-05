@@ -4,22 +4,11 @@
 
 // let l = 10;
 
-// while(l <= 3){
-
-//   console.log(l);
-//   l++;
-
+// while(l){
+//   console.log(--l);
 // }
 
-const frontEndDev = [
-  'HTML',
-  'CSS',
-  'SVG',
-  'JavaScript',
-  'jQuery',
-  'React',
-  'Redux',
-];
+const frontEndDev = ['HTML', 'CSS', 'SVG', 'JavaScript', 'jQuery', 'React'];
 
 /* 프론트엔드 개발 집합 항목 출력 ---------------------------------------------- */
 
@@ -35,11 +24,15 @@ const frontEndDev = [
 
 // while 문 (순환 : 순방향)
 
-// let i = 0;
-// while (i < frontEndDev.length) {
-//   console.log(frontEndDev[i]);
-//   i++;
-// }
+let i = 0;
+
+while (i < frontEndDev.length) {
+  let value = frontEndDev[i];
+
+  // console.log(value);
+
+  i++;
+}
 
 // while 문 (역순환 : 역방향)
 
@@ -48,7 +41,7 @@ const frontEndDev = [
 let l = frontEndDev.length - 1;
 
 while (l >= 0) {
-  let value = frontEndDev[l]; // value를 지정하는 이유: 가독성
+  let value = frontEndDev[l];
 
   console.log(value);
 

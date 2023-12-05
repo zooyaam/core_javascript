@@ -21,55 +21,65 @@ do {
 //   '최초 실행된 메시지입니다. 이 메시지는 조건이 거짓이어도 볼 수 있습니다.' 출력
 // - 순환 중단
 
-// let repeat = prompt('몇 번 반복하겠습니까?', 0);
+// do{
 
-// do {
 //   console.log(repeat);
 
-//   if (repeat < 0) {
+//   if(repeat < 0){
 //     console.log('최초실행!');
 //     break;
 //   }
 
 //   repeat--;
-// } while (repeat);
+
+// }while(repeat)
+
+// let repeat = prompt('몇번 반복 하시겠습니까?',0);
 
 // do ~ while 문 (순환)
 // - 위 do ~ while 문을 순방향으로 순환되도록 설정
 
-// let repeat = prompt('몇 번 반복하겠습니까?', 0);
 // let count = 0;
 
-// do {
-//   console.log(count);
+// do{
 
-//   if (count >= 10) {
+//   if( count >= 10){
 //     break;
 //   }
 
-//   repeat++;
-// } while (repeat--);
+//   console.log(++count);
+
+// }while(repeat--)
 
 let first = document.querySelector('.first');
 
-// do {
+// do{
+
+//   console.log( first.nodeType );
+
 //   first = first.nextSibling;
-// } while (first.nodeType !== 1);
+
+// }while(first.nodeType !== 1)
 
 function next(node) {
   do {
     node = node.nextSibling;
   } while (node.nodeType !== 1);
+
   return node;
 }
 
-const second = next(first);
-
-//prev(second) //first
+// const second = next(first)
+// const third = next(second)
 
 function prev(node) {
   do {
     node = node.previousSibling;
   } while (node.nodeType !== 1);
+
   return node;
 }
+
+// prev(second)
+
+// prev(second) // first
