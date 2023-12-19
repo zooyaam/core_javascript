@@ -1,4 +1,12 @@
-import { diceAnimation, getNode, getNodes, insertLast } from './lib/index.js';
+import {
+  memo,
+  getNode,
+  getNodes,
+  endScroll,
+  insertLast,
+  diceAnimation,
+  clearContents,
+} from './lib/index.js';
 
 const [rollingButton, recordButton, resetButton] = getNodes(
   '.buttonGroup > button'
@@ -20,21 +28,20 @@ let total = 0;
 
 function createItem(value) {
   const template = `
-  <tr>
-    <td>${++count}</td>
-    <td>${value}</td>
-    <td>${(total += value * 1)}</td>
-  </tr>
-`;
+    <tr>
+      <td>${++count}</td>
+      <td>${value}</td>
+      <td>${(total += value)}</td>
+    </tr>
+  `;
   return template;
 }
 
 function renderRecordItem() {
-  const diceValue = getNode('#cube').dataset.dice;
-
-  console.log(diceValue);
+  const diceValue = memo('cube').dataset.dice / 1;
 
   insertLast('.recordList tbody', createItem(diceValue));
+  endScroll(recordListWrapper);
 }
 
 const handleRollingDice = (() => {
@@ -66,6 +73,11 @@ function handleRecord() {
 
 function handleReset() {
   recordListWrapper.hidden = true;
+
+  clearContents(getNode('tbody'));
+
+  count = 0;
+  total = 0;
 }
 
 rollingButton.addEventListener('click', handleRollingDice);
