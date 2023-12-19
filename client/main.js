@@ -53,10 +53,11 @@ function handleSubmit(e) {
 
 function handleCopy() {
   const text = result.textContent;
-
-  copy(text).then(() => {
-    showAlert('.alert-success', '클립보드 복사 완료!!');
-  });
+  if (nameField.value) {
+    copy(text).then(() => {
+      showAlert('.alert-success', '클립보드 복사 완료!!');
+    });
+  }
 }
 
 submit.addEventListener('click', handleSubmit);
